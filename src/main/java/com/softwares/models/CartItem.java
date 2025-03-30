@@ -2,6 +2,7 @@ package com.softwares.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -42,5 +43,8 @@ public class CartItem {
 
     private Integer sellingPrice;
 
-    private Long user_Id;
+    @Column(name = "user_Id")
+    private Long userId;
+
+
 }
