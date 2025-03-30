@@ -11,7 +11,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -31,7 +30,7 @@ public class Review {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long Id;
+    private long id;
 
     @Column(nullable = false)
     private String reviewText;
@@ -44,11 +43,9 @@ public class Review {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(nullable = false)
     private Product product;
 
     @ManyToOne
-    @JoinColumn(nullable = false)
     private User user;
 
     @Column(nullable = false)

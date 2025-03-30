@@ -27,7 +27,7 @@ public class Wishlist {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long Id;
+    private long id;
 
     @OneToOne
     private User user;

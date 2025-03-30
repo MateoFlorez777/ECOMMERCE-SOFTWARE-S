@@ -29,7 +29,7 @@ public class Seller {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long Id;
+    private long id;
 
     private String sellerName;
 

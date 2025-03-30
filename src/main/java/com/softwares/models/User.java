@@ -31,7 +31,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long Id;
+    private long id;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;

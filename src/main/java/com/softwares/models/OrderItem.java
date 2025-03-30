@@ -25,7 +25,7 @@ public class OrderItem {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long Id;
+    private long id;
 
     @JsonIgnore
     @ManyToOne

@@ -30,7 +30,7 @@ public class PaymentOrder {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long Id;
+    private long id;
 
     private Long amount;
 

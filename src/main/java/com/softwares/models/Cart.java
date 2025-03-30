@@ -28,7 +28,7 @@ public class Cart {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long Id;
+    private long id;
 
     @ManyToOne
     private User user;
@@ -44,5 +44,5 @@ public class Cart {
 
     private int discount;
 
-    private String CouponCode;
+    private String couponCode;
 }

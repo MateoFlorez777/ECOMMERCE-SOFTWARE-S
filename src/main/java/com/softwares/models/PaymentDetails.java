@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 
 public class PaymentDetails {
 
-    private String PaymentId;
+    private String paymentId;
 
     private String psePaymentLinkId;
 

@@ -20,7 +20,7 @@ public class SellerReport {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long Id;
+    private long id;
 
     private Seller seller;
 

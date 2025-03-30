@@ -23,7 +23,7 @@ public class Deal {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long Id;
+    private long id;
 
     private Integer discount;
 
