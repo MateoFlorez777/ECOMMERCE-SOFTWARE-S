@@ -30,7 +30,7 @@ import lombok.Setter;
 public class User {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
