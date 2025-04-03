@@ -1,5 +1,8 @@
 package com.softwares.service;
 
-public class AuthService {
+import com.softwares.response.SignupRequest;
 
+public interface AuthService {
+
+    String createUser(SignupRequest req);
 }
