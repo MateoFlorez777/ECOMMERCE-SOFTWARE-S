@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.softwares.domain.USER_ROLE;
+import com.softwares.models.VerificationCode;
 import com.softwares.repository.UserRepository;
+import com.softwares.response.ApiResponse;
 import com.softwares.response.AuthResponse;
 import com.softwares.response.SignupRequest;
 import com.softwares.service.AuthService;
@@ -23,14 +25,7 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/signup")
-    public ResponseEntity<AuthResponse> createUserHandler(@RequestBody SignupRequest req){
-
-        /*
-        User user = new User();
-        user.setEmail(req.getEmail());
-        user.setFullName(req.getFullName());
-
-        User savedUser = userRepository.save(user);*/
+    public ResponseEntity<AuthResponse> createUserHandler(@RequestBody SignupRequest req) throws Exception{
 
         String jwt=authService.createUser(req);
 
@@ -40,6 +35,19 @@ public class AuthController {
         res.setRole(USER_ROLE.ROLE_CUSTOMER);
 
         return ResponseEntity.ok(res);
+    }
+
+    @PostMapping("/sent/login-signup-otp")
+    public ResponseEntity<ApiResponse> sentOtpHandler(@RequestBody VerificationCode req) throws Exception{
+
+        authService.sentLoginOtp(req.getEmail());
+
+        ApiResponse res=new ApiResponse();
+
+        res.setMessage("otp sent sucessfully");
+
+        return ResponseEntity.ok(res);
+        
     }
 
    
