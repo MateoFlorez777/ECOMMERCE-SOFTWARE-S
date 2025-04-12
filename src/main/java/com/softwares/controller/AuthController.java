@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.softwares.domain.USER_ROLE;
 import com.softwares.models.VerificationCode;
 import com.softwares.repository.UserRepository;
+import com.softwares.request.LoginRequest;
 import com.softwares.response.ApiResponse;
 import com.softwares.response.AuthResponse;
 import com.softwares.response.SignupRequest;
@@ -47,6 +48,17 @@ public class AuthController {
         res.setMessage("otp sent sucessfully");
 
         return ResponseEntity.ok(res);
+        
+    }
+
+
+    @PostMapping("/signing")
+    public ResponseEntity<AuthResponse> LoginHandler(@RequestBody LoginRequest req) throws Exception{
+
+        AuthResponse authResponse=authService.signing(req);
+
+
+        return ResponseEntity.ok(authResponse);
         
     }
 
