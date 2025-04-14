@@ -73,7 +73,7 @@ public class SellerServiceImpl implements SellerService {
     }
 
     @Override
-    public List<Seller> getAllSeller(AccountStatus status) {
+    public List<Seller> getAllSellers(AccountStatus status) {
         return sellerRepository.findByAccountStatus(status);
     }
 
@@ -162,5 +162,6 @@ public class SellerServiceImpl implements SellerService {
         seller.setAccountStatus(status);
         return sellerRepository.save(seller);
     }
+
 
 }
