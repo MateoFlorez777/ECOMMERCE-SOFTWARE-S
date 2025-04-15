@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.softwares.config.JwtProvider;
 import com.softwares.domain.AccountStatus;
 import com.softwares.domain.USER_ROLE;
+import com.softwares.exceptions.SellerException;
 import com.softwares.models.Address;
 import com.softwares.models.Seller;
 import com.softwares.repository.AddressRepository;
@@ -57,9 +58,9 @@ public class SellerServiceImpl implements SellerService {
     }
 
     @Override
-    public Seller getSellerById(Long id) throws Exception{
+    public Seller getSellerById(Long id) throws SellerException{
         return sellerRepository.findById(id)
-                .orElseThrow(() -> new Exception("seller not fount with id -" + id));
+                .orElseThrow(() -> new SellerException("seller not fount with id -" + id));
     }
 
     @Override

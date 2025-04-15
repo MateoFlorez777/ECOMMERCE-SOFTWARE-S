@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.softwares.domain.USER_ROLE;
-import com.softwares.models.VerificationCode;
 import com.softwares.repository.UserRepository;
 import com.softwares.request.LoginOtpRequest;
 import com.softwares.request.LoginRequest;

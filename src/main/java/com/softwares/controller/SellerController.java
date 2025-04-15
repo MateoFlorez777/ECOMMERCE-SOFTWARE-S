@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.softwares.domain.AccountStatus;
+import com.softwares.exceptions.SellerException;
 import com.softwares.models.Seller;
-import com.softwares.models.SellerReport;
 import com.softwares.models.VerificationCode;
 import com.softwares.repository.VerificationCodeRepository;
 import com.softwares.request.LoginRequest;
@@ -58,6 +58,7 @@ public class SellerController {
         
 
         req.setEmail("seller_" + email);
+        System.out.println(otp + " - " + email);
         AuthResponse authResponse= authService.signing(req);
 
         return ResponseEntity.ok(authResponse);
@@ -106,7 +107,7 @@ public class SellerController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Seller> getSellerById(@PathVariable Long id) throws Exception {
+    public ResponseEntity<Seller> getSellerById(@PathVariable Long id) throws SellerException {
         Seller seller = sellerService.getSellerById(id);
         return new ResponseEntity<>(seller, HttpStatus.OK);
     }

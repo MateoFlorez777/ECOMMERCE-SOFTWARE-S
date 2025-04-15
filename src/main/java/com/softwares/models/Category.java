@@ -33,7 +33,7 @@ public class Category {
     private String categoryId;
 
     @ManyToOne
-    private Category parenCategory;
+    private Category parentCategory;
 
     @NotNull
     private Integer level;
