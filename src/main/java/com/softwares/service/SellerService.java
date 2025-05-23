@@ -16,6 +16,6 @@ public interface SellerService {
     Seller updateSeller(Long id, Seller seller) throws Exception;
     void deleteSeller(Long id) throws Exception;
     Seller verifyEmail(String email, String otp) throws Exception;
-    Seller updatSellerAccountStatus(Long sellerId, AccountStatus status) throws Exception;
+    Seller updateSellerAccountStatus(Long sellerId, AccountStatus status) throws Exception;
 
 }

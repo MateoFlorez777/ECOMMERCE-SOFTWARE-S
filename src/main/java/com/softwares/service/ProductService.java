@@ -11,7 +11,7 @@ import com.softwares.request.CreateProductRequest;
 
 public interface ProductService {
 
-    public Product createProduct(CreateProductRequest req, Seller seller);
+    public Product createProduct(CreateProductRequest req, Seller seller) throws ProductException;
     public void deleteProduct(Long productId) throws ProductException;
     public Product updateProduct(Long productId,Product product) throws ProductException;
     Product findProductById(Long productId) throws ProductException;
@@ -26,9 +26,8 @@ public interface ProductService {
             Integer minDiscount,
             String sort,
             String stock,
-            Integer pageNumber
+            Integer pageNumber);
 
-    );
 
     List<Product> getProductBySellerId(Long sellerId);
 

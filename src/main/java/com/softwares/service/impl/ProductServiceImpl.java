@@ -27,13 +27,15 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
 
     @Override
     public Product createProduct(CreateProductRequest req, Seller seller) {
+
+        int discountPercentage=calculateDiscountPercentage(req.getMrpPrice(), req.getSellingPrice());
 
         Category category1 = categoryRepository.findByCategoryId(req.getCategory());
 
@@ -63,14 +65,14 @@ public class ProductServiceImpl implements ProductService{
             category3=categoryRepository.save(category);
         }
 
-        int discountPercentage=calculateDiscountPercentage(req.getMrpPrice(), req.getSellingPrice());
-        
+
         Product product = new Product();
+
         product.setSeller(seller);
         product.setCategory(category3);
         product.setDescription(req.getDescription());
         product.setCreatedAt(LocalDateTime.now());
-        product.setTitle(req.getTittle());
+        product.setTitle(req.getTitle());
         product.setColor(req.getColor());
         product.setSellingPrice(req.getSellingPrice());
         product.setImages(req.getImages());
@@ -81,8 +83,8 @@ public class ProductServiceImpl implements ProductService{
         return productRepository.save(product);
 
     }
-        
-        
+
+
     private int calculateDiscountPercentage(int mrpPrice, int sellingPrice) {
 
         if(mrpPrice<=0) {
@@ -92,8 +94,8 @@ public class ProductServiceImpl implements ProductService{
         double discountPercentage=(discount/mrpPrice)*100;
         return(int)discountPercentage;
     }
-        
-        
+
+
     @Override
     public void deleteProduct(Long productId) throws ProductException {
 
