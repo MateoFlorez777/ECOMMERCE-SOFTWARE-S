@@ -3,6 +3,8 @@ package com.softwares.controller;
 
 import java.util.List;
 
+import com.softwares.models.SellerReport;
+import com.softwares.service.SellerReportService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,6 +46,7 @@ public class SellerController {
     private final SellerService sellerService;
     private final AuthService authService;
     private final EmailService emailService;
+    private final SellerReportService sellerReportService;
 
 
 
@@ -121,14 +124,13 @@ public class SellerController {
     }
     
     
-    /*@GetMapping("/report")
+    @GetMapping("/report")
     public ResponseEntity<SellerReport> getSellerReport(
             @RequestHeader("Authorization") String jwt) throws Exception{
-        String email = jwtProvider.getEmailFromJwtToken(jwt);
         Seller seller = sellerService.getSellerProfile(jwt);
         SellerReport report = sellerReportService.getSellerReport(seller);
         return new ResponseEntity<>(report, HttpStatus.OK);
-    }*/
+    }
 
     @GetMapping
     public ResponseEntity<List<Seller>> getAllSellers(
