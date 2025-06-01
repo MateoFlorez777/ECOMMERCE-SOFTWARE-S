@@ -4,6 +4,7 @@ import com.softwares.domain.HomeCategorySection;
 import com.softwares.models.Deal;
 import com.softwares.models.Home;
 import com.softwares.models.HomeCategory;
+import com.softwares.repository.DealRepository;
 import com.softwares.service.HomeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class HomeServiceImpl implements HomeService {
+
 
     private final DealRepository dealRepository;
 
@@ -63,4 +65,5 @@ public class HomeServiceImpl implements HomeService {
 
         return home;
     }
+
 }

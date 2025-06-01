@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface HomeService {
 
-    Home createHomePageData(List<HomeCategory> allCategories);
+    Home creatHomePageData(List<HomeCategory> categories);
 }

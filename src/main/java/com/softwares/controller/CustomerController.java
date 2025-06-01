@@ -13,39 +13,24 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-public class HomeCategoryController {
+public class CustomerController {
 
-    private final HomeService homeService;
     private final HomeCategoryService homeCategoryService;
+    private final HomeService homeService;
+
+    @GetMapping("/home-page")
+    public ResponseEntity<Home> getHomePageData() {
+//        Home homePageData = homeService.getHomePageData();
+//        return new ResponseEntity<>(homePageData, HttpStatus.ACCEPTED);
+        return null;
+    }
 
     @PostMapping("/home/categories")
     public ResponseEntity<Home> createHomeCategories(
             @RequestBody List<HomeCategory> homeCategories
     ) {
         List<HomeCategory> categories = homeCategoryService.createCategories(homeCategories);
-        Home home = homeService.creatHomePageData(categories);
+        Home home=homeService.creatHomePageData(categories);
         return new ResponseEntity<>(home, HttpStatus.ACCEPTED);
-    }
-
-
-
-
-    @GetMapping("/admin/home-category")
-    public ResponseEntity<List<HomeCategory>> getHomeCategory(
-    ) throws Exception {
-
-        List<HomeCategory> categories=homeCategoryService.getAllCategories();
-        return ResponseEntity.ok(categories);
-
-    }
-
-    @PatchMapping("/admin/home-category/{id}")
-    public ResponseEntity<HomeCategory> updateHomeCategory(
-            @PathVariable Long id,
-            @RequestBody HomeCategory homeCategory) throws Exception {
-
-        HomeCategory updatedCategory=homeCategoryService.updateCategory(homeCategory,id);
-        return ResponseEntity.ok(updatedCategory);
-
     }
 }
