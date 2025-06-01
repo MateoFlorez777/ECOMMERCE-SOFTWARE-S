@@ -1,4 +1,4 @@
-package com.softwares.models;
+package com.softwares.domain;
 
 public enum OrderStatus {
 

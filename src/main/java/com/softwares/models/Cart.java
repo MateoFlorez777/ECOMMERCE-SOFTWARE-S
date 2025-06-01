@@ -21,12 +21,12 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode
+//@EqualsAndHashCode
 public class Cart {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private long id;
+    private Long id;
 
     @ManyToOne
     private User user;
@@ -43,4 +43,6 @@ public class Cart {
     private int discount;
 
     private String couponCode;
+
+    private int couponPrice;
 }

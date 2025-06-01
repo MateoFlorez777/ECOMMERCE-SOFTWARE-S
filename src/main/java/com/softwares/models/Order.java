@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.softwares.domain.OrderStatus;
 import com.softwares.domain.PaymentStatus;
 
 import jakarta.persistence.CascadeType;
@@ -32,7 +33,7 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private long id;
+    private Long id;
 
 
     private String orderId;
